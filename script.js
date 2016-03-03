@@ -4,7 +4,7 @@
         // attach a click event listener here
         // to your play button (get its ID at the bottom of this page)
         // and attach it to the play function
-      
+      $("#playButton").click (play);
       });
       
       ////////////////////////////////////////////////
@@ -51,9 +51,19 @@
           // If the girl wins, run the function girlWins()
           // hints: == tests if two things are equal, && means "and"
           // if (boyPlayed == "Rock" && girlPlayed == "Scissors") {}
-          
+          if (boyPlayed == "Rock" && girlPlayed == "Scissors") {
+            boyWins();
+          }
+          else if (boyPlayed == "paper" && girlPlayed == "Rock") {
+            boyWins();
+          }
+          else if (boyPlayed == "Scissors" && girlPlayed == "paper") {
+            boyWins();
+          }
+          else {
+            girlWins();
+          }
         }
-              
       }
       
       function tie(){
@@ -64,10 +74,12 @@
         // ****** STEP THREE ******
         // add the class "girl-lose" to the girl div
         $("#message").html("Boy wins!");
+        $(".girl").addClass ("girl-lose");
       }
       
       function girlWins(){
         // ****** STEP THREE ******
         // add the class "boy-lose" to the boy div  
         $("#message").html("Girl wins!");
+        $(".boy").addClass ("boy-lose");
       }
